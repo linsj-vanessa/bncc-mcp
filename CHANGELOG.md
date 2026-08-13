@@ -2,21 +2,33 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
-## [0.3.0] - 2026-08-13
+## [2.0.0] - 2026-08-13
+
+Release major do **BNCC MCP 2.0** — fork mantido em
+[linsj-vanessa/bncc-mcp](https://github.com/linsj-vanessa/bncc-mcp).
+Esta versão consolida e expande todas as funcionalidades do projeto original,
+adicionando cobertura pedagógica completa para o componente de Computação.
 
 ### Adicionado
-- Enriquecimento completo das 141 habilidades de **Computação**: campo
-  `objeto_conhecimento` preenchido via API `bncc.api.br`.
-- Suporte a `em_foco` e campos pedagógicos (`mf_*`) no `bncc_comp.csv`,
-  habilitando Computação no `bncc_mapa_de_foco` em pé de igualdade com
-  Língua Portuguesa, Matemática, Ciências, História e Geografia.
-- Script `scripts/enrich_comp.py` para re-enriquecer o CSV automaticamente
-  sempre que necessário (requer `BNCC_API_KEY` no `.env`).
+- **`objeto_conhecimento` para Computação**: campo preenchido em todas as
+  141 habilidades de Computação via API `bncc.api.br`, alinhando o componente
+  ao mesmo nível de detalhamento dos demais componentes do Ensino Fundamental.
+- **Mapa de Foco para Computação**: suporte a `em_foco` e campos pedagógicos
+  (`mf_classificacao`, `mf_conhecimento_previo`, `mf_objetivos`,
+  `mf_competencias`, `mf_habilidades_relacionadas`, `mf_comentarios`) no
+  `bncc_comp.csv` — Computação agora é coberta pelo `bncc_mapa_de_foco` em
+  pé de igualdade com Língua Portuguesa, Matemática, Ciências, História e
+  Geografia.
+- **`scripts/enrich_comp.py`**: script para re-enriquecer o CSV de Computação
+  automaticamente sempre que necessário (requer `BNCC_API_KEY` no `.env`).
 
 ### Alterado
-- `server.py`: bloco de carga do `bncc_comp.csv` agora lê `objeto_conhecimento`,
-  `em_foco` e todos os campos `mf_*` do CSV.
+- `server.py`: bloco de carga do `bncc_comp.csv` reescrito para ler
+  `objeto_conhecimento`, `em_foco` e todos os campos `mf_*` do CSV.
+- Docstring de `bncc_mapa_de_foco` atualizada para refletir a inclusão de
+  Computação na cobertura da ferramenta.
 - URLs do projeto atualizadas para o fork `linsj-vanessa/bncc-mcp`.
+- `.gitignore`: ignora `.env` e `.env.*` (segredos e variáveis de ambiente).
 
 ## [0.2.1] - 2026-07-24
 
