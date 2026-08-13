@@ -2,6 +2,22 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
+## [0.3.0] - 2026-08-13
+
+### Adicionado
+- Enriquecimento completo das 141 habilidades de **Computação**: campo
+  `objeto_conhecimento` preenchido via API `bncc.api.br`.
+- Suporte a `em_foco` e campos pedagógicos (`mf_*`) no `bncc_comp.csv`,
+  habilitando Computação no `bncc_mapa_de_foco` em pé de igualdade com
+  Língua Portuguesa, Matemática, Ciências, História e Geografia.
+- Script `scripts/enrich_comp.py` para re-enriquecer o CSV automaticamente
+  sempre que necessário (requer `BNCC_API_KEY` no `.env`).
+
+### Alterado
+- `server.py`: bloco de carga do `bncc_comp.csv` agora lê `objeto_conhecimento`,
+  `em_foco` e todos os campos `mf_*` do CSV.
+- URLs do projeto atualizadas para o fork `linsj-vanessa/bncc-mcp`.
+
 ## [0.2.1] - 2026-07-24
 
 ### Corrigido

@@ -94,7 +94,8 @@ def _load() -> dict[str, dict[str, Any]]:
             if not cod or cod in registros:
                 continue
             eixo = r.get("eixo", "").strip()
-            registros[cod] = {
+            em_foco = r.get("em_foco", "").strip().lower() == "sim"
+            rec = {
                 "codigo": cod,
                 "etapa": r.get("etapa", "").strip(),
                 "componente": r.get("componente", "").strip(),
@@ -103,10 +104,20 @@ def _load() -> dict[str, dict[str, Any]]:
                 # eixo também como unidade temática: bncc_listar e o índice
                 # de busca operam sobre esse campo canônico
                 "unidade_tematica": eixo,
-                "objeto_conhecimento": "",
+                "objeto_conhecimento": r.get("objeto_conhecimento", "").strip(),
                 "habilidade": r.get("habilidade", "").strip(),
-                "em_foco": False,
+                "em_foco": em_foco,
             }
+            if em_foco:
+                rec["mapa_foco"] = {
+                    "classificacao": r.get("mf_classificacao", "").strip(),
+                    "conhecimento_previo": r.get("mf_conhecimento_previo", "").strip(),
+                    "objetivos_aprendizagem": r.get("mf_objetivos", "").strip(),
+                    "competencias_relacionadas": r.get("mf_competencias", "").strip(),
+                    "habilidades_relacionadas": r.get("mf_habilidades_relacionadas", "").strip(),
+                    "comentarios": r.get("mf_comentarios", "").strip(),
+                }
+            registros[cod] = rec
     return registros
 
 
@@ -234,9 +245,9 @@ def bncc_mapa_de_foco(componente: str = "", ano: str = "",
     objetivos de aprendizagem, competências e habilidades relacionadas e
     comentários.
 
-    O Mapa de Foco cobre Língua Portuguesa, Matemática, Ciências, História e
-    Geografia (Ensino Fundamental). Não há Mapa de Foco para Arte, Educação
-    Física, Língua Inglesa, Ensino Religioso, Computação, Educação Infantil
+    O Mapa de Foco cobre Língua Portuguesa, Matemática, Ciências, História,
+    Geografia e Computação (Ensino Fundamental). Não há Mapa de Foco para
+    Arte, Educação Física, Língua Inglesa, Ensino Religioso, Educação Infantil
     ou Ensino Médio.
 
     Args:

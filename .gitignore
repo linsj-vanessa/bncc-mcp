@@ -14,3 +14,7 @@ env/
 *.pdf
 *.xlsx
 ~$*
+
+# Variáveis de ambiente e segredos
+.env
+.env.*

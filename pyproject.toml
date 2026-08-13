@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "bncc-mcp"
-version = "0.2.1"
+version = "0.3.0"
 description = "Servidor MCP da BNCC: habilidades com unidade temática, objeto de conhecimento, o Mapa de Foco (Instituto Reúna) e o complemento de Computação."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -20,8 +20,8 @@ classifiers = [
 dependencies = ["mcp>=1.2.0"]
 
 [project.urls]
-Homepage = "https://github.com/dfdb76/bncc-mcp"
-Repository = "https://github.com/dfdb76/bncc-mcp"
+Homepage = "https://github.com/linsj-vanessa/bncc-mcp"
+Repository = "https://github.com/linsj-vanessa/bncc-mcp"
 
 [project.scripts]
 bncc-mcp = "bncc_mcp.server:main"
