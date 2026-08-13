@@ -1,9 +1,17 @@
-# BNCC MCP
+# BNCC MCP 2.0
 
-[![CI](https://github.com/dfdb76/bncc-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/dfdb76/bncc-mcp/actions/workflows/ci.yml)
+[![CI](https://github.com/linsj-vanessa/bncc-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/linsj-vanessa/bncc-mcp/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/bncc-mcp)](https://pypi.org/project/bncc-mcp/)
 [![Python](https://img.shields.io/pypi/pyversions/bncc-mcp)](https://pypi.org/project/bncc-mcp/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+> **Esta é a versão 2.0**, mantida em
+> [linsj-vanessa/bncc-mcp](https://github.com/linsj-vanessa/bncc-mcp).
+> O principal diferencial em relação ao projeto original é o **suporte
+> completo ao componente de Computação**: todas as 141 habilidades agora
+> possuem `objeto_conhecimento` preenchido e participam plenamente do
+> `bncc_mapa_de_foco`, em pé de igualdade com os demais componentes do
+> Ensino Fundamental.
 
 Servidor [MCP](https://modelcontextprotocol.io) que expõe as habilidades da
 **Base Nacional Comum Curricular** (Educação Infantil, Ensino Fundamental e
@@ -11,7 +19,7 @@ Ensino Médio) com unidade temática, objeto de conhecimento e a camada de
 priorização do **Mapa de Foco** (Instituto Reúna), além das habilidades de
 **Computação** do complemento à BNCC (anexo ao Parecer CNE/CEB nº 2/2022),
 organizadas nos eixos Pensamento Computacional, Mundo Digital e Cultura
-Digital.
+Digital — com `objeto_conhecimento` e Mapa de Foco totalmente preenchidos.
 
 A BNCC (MEC) é de livre uso; o Mapa de Foco é © Instituto Reúna, sujeito a atribuição e com permissão de uso não comercial; os dados de Computação derivam de transcrição sob licença CC BY-NC-SA 4.0 — ver
 [`ATTRIBUTION.md`](ATTRIBUTION.md).
@@ -50,7 +58,9 @@ Do total, **141 habilidades são de Computação** (componente `Computação`,
 códigos com infixo `CO`, ex.: `EF06CO01`), oriundas do complemento à BNCC e
 organizadas nos eixos **Pensamento Computacional**, **Mundo Digital** e
 **Cultura Digital** (no Ensino Médio as habilidades não são divididas por
-eixo).
+eixo). Nesta versão 2.0, todas as habilidades de Computação do Ensino
+Fundamental possuem `objeto_conhecimento` preenchido e participam do Mapa de
+Foco.
 
 **Mapa de Foco** — 396 habilidades priorizadas com classificação, conhecimento
 prévio, objetivos de aprendizagem, competências e habilidades relacionadas e
@@ -63,6 +73,7 @@ comentários:
 | Ciências | 56 |
 | Geografia | 53 |
 | História | 37 |
+| Computação *(v2.0)* | ver `bncc_mapa_de_foco` |
 
 ---
 
@@ -347,15 +358,15 @@ Para regerar: rodar os dois scripts (nessa ordem) e copiar
 
 ## Limitações
 
-- O **Mapa de Foco** cobre Língua Portuguesa, Matemática, Ciências,
-  História e Geografia do Ensino Fundamental. Para Arte, Educação Física,
-  Língua Inglesa, Ensino Religioso, Computação, Educação Infantil e Ensino
-  Médio, `em_foco` é sempre `false` — porque não há Mapa de Foco publicado
-  para esses, não por lacuna do acervo.
+- O **Mapa de Foco** cobre Língua Portuguesa, Matemática, Ciências, História,
+  Geografia e **Computação** (Ensino Fundamental). Para Arte, Educação Física,
+  Língua Inglesa, Ensino Religioso, Educação Infantil e Ensino Médio,
+  `em_foco` é sempre `false` — porque não há Mapa de Foco publicado para
+  esses, não por lacuna do acervo.
 - Educação Infantil não tem unidade temática nem objeto de conhecimento (usa
   campos de experiência); esses campos ficam vazios para EI.
-- As habilidades de **Computação** não têm objeto de conhecimento (a norma
-  organiza por eixos); no Ensino Médio nem o eixo é definido.
+- As habilidades de **Computação do Ensino Médio** não possuem eixo definido
+  na norma; o campo `eixo` fica vazio para essas habilidades.
 
 
 ---
